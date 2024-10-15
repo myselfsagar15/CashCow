@@ -7,11 +7,8 @@ This project is a Python-based payment application similar to PhonePe. It allows
 - [Overview](#overview)
 - [Features](#features)
 - [ER Diagram](#er-diagram)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Database Schema](#database-schema)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
