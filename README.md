@@ -11,7 +11,7 @@ Database Schema
 
 
 
-Overview
+##Overview
 
 The application is designed to allow users to:
 
@@ -21,7 +21,8 @@ Initiate transactions to other users.
 Save frequently-used contacts (other users) for quick payments.
 Securely verify bank details before authorizing transactions.
 
-Features
+##Features
+
 User Management: Users can create an account by providing credentials such as name, email, and password. A user can save their bank details, including account numbers and routing numbers.
 
 Bank Account Storage: Users can associate multiple bank accounts with their profile and verify them securely.
@@ -32,7 +33,8 @@ Saved Users: Users can store contacts for frequently sent payments to streamline
 
 Security: All transactions require password verification, and the user's sensitive details are handled securely.
 
-ER Diagram
+##ER Diagram
+
 The ER diagram represents the structure of the application's database. It includes the following key entities:
 
 Credentials/User: Stores user credentials like email, password, name, and an optional phone number. Each user has a one-to-many relationship with their bank details.
@@ -45,7 +47,8 @@ SavedUsers: Allows users to store information about other users they frequently 
 
 Bank: Stores bank-related information and ensures proper routing of transactions by verifying account details through the BankAuth entity.
 
-Usage
+##Usage
+
 Once the app is up and running, users can:
 
 Register: Create an account with their name, email, and password.
@@ -53,7 +56,9 @@ Login: Securely log in with their credentials.
 Add Bank Details: Users can store multiple bank accounts.
 Make Payments: Authorize transactions to other users, either manually or through saved contacts.
 View Transaction History: Review transaction history and balances.
-Database Schema
+
+##Database Schema
+
 Credentials/User: The table contains fields for UserID, Email, Password, PhoneNumber (Optional), and ConfirmPassword.
 
 UserBankDetails: The table stores each user's UserAccountNumber, UserRoutingNumber, and Balance. Each user can have multiple bank accounts (1 to 5).
