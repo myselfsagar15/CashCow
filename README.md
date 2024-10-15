@@ -15,9 +15,13 @@ This project is a Python-based payment application similar to PhonePe. It allows
 The application is designed to allow users to:
 
 Register and store their credentials securely.
+
 Save multiple bank accounts.
+
 Initiate transactions to other users.
+
 Save frequently-used contacts (other users) for quick payments.
+
 Securely verify bank details before authorizing transactions.
 
 ## Features
@@ -51,9 +55,13 @@ Bank: Stores bank-related information and ensures proper routing of transactions
 Once the app is up and running, users can:
 
 Register: Create an account with their name, email, and password.
+
 Login: Securely log in with their credentials.
+
 Add Bank Details: Users can store multiple bank accounts.
+
 Make Payments: Authorize transactions to other users, either manually or through saved contacts.
+
 View Transaction History: Review transaction history and balances.
 
 ## Database Schema
