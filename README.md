@@ -9,9 +9,17 @@ ER Diagram
 Usage
 Database Schema
 
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [ER Diagram](#er-diagram)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Database Schema](#database-schema)
+- [Contributing](#contributing)
+- [License](#license)
 
-
-##Overview
+## Overview
 
 The application is designed to allow users to:
 
@@ -21,7 +29,7 @@ Initiate transactions to other users.
 Save frequently-used contacts (other users) for quick payments.
 Securely verify bank details before authorizing transactions.
 
-##Features
+## Features
 
 User Management: Users can create an account by providing credentials such as name, email, and password. A user can save their bank details, including account numbers and routing numbers.
 
@@ -33,7 +41,7 @@ Saved Users: Users can store contacts for frequently sent payments to streamline
 
 Security: All transactions require password verification, and the user's sensitive details are handled securely.
 
-##ER Diagram
+## ER Diagram
 
 The ER diagram represents the structure of the application's database. It includes the following key entities:
 
@@ -47,7 +55,7 @@ SavedUsers: Allows users to store information about other users they frequently 
 
 Bank: Stores bank-related information and ensures proper routing of transactions by verifying account details through the BankAuth entity.
 
-##Usage
+## Usage
 
 Once the app is up and running, users can:
 
@@ -57,7 +65,7 @@ Add Bank Details: Users can store multiple bank accounts.
 Make Payments: Authorize transactions to other users, either manually or through saved contacts.
 View Transaction History: Review transaction history and balances.
 
-##Database Schema
+## Database Schema
 
 Credentials/User: The table contains fields for UserID, Email, Password, PhoneNumber (Optional), and ConfirmPassword.
 
