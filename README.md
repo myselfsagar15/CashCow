@@ -1,40 +1,64 @@
 # CashCow
 
-This project is a Python-based payment application similar to PhonePe. It allows users to register, save bank details, authorize transactions, and manage saved contacts for quick payments. 
+Sagar Bangera
+
+CashCow is a comprehensive payment tracking and management system that simplifies financial transactions. The application enables users to manage payment sources, perform secure transactions, resolve disputes, and track transaction histories. It is built with a focus on user-friendliness, administrative control, and analytical insights, making it suitable for personal and organizational use. The app includes distinct user roles (admin and customer), ensuring a robust experience for different users.
 
 
 ## Table of Contents
 - [Overview](#overview)
+- [Technologies Used](#technologies-used)
 - [Features](#features)
 - [ER Diagram](#er-diagram)
 - [Usage](#usage)
 - [Database Schema](#database-schema)
+- [Future Enhancements](#future_enhancements)
 
 ## Overview
 
-The application is designed to allow users to:
+Primary Use Cases
 
-Register and store their credentials securely.
+Customers:
+Manage payment sources.
+Initiate secure transfers.
+Track transaction history.
+Raise disputes for erroneous transactions.
 
-Save multiple bank accounts.
+Admins:
+View and manage disputes raised by customers.
+Access analytical insights on users and transactions.
+Manage user details and ensure platform integrity.
 
-Initiate transactions to other users.
+## Technologies Used
+Technologies Used
+Backend: Flask (Python)
+Frontend: HTML, CSS, Chart.js
+Database: MySQL
+Other Tools:
+MySQL for database interaction.
+YAML for configuration management.
 
-Save frequently-used contacts (other users) for quick payments.
-
-Securely verify bank details before authorizing transactions.
 
 ## Features
 
-User Management: Users can create an account by providing credentials such as name, email, and password. A user can save their bank details, including account numbers and routing numbers.
+Secure Authentication:
+Hashing passwords using MD5 for secure storage and validation.
+Role-based authentication for admins and customers.
 
-Bank Account Storage: Users can associate multiple bank accounts with their profile and verify them securely.
+User Management:
+Admins can view and manage user details.
+Customers can register, login, and manage payment sources.
 
-Transaction Handling: Users can authorize transactions between their accounts and saved users.
+Transaction Management:
+Real-time balance deduction and validation for transfers.
+Multi-source payments using primary and secondary sources.
 
-Saved Users: Users can store contacts for frequently sent payments to streamline the payment process.
+Dispute Resolution:
+Customers can raise disputes on transactions.
+Admins can approve or reject disputes via the admin dashboard.
 
-Security: All transactions require password verification, and the user's sensitive details are handled securely.
+Analytics:
+Track platform activity to identify trends and growth.
 
 ## ER Diagram
 
@@ -52,27 +76,75 @@ Bank: Stores bank-related information and ensures proper routing of transactions
 
 ## Usage
 
-Once the app is up and running, users can:
+Admin:
+Main Purpose: Monitor and manage disputes, users, and transactions. Provides insights and platform management capabilities.
 
-Register: Create an account with their name, email, and password.
+Customer:
+Main Purpose: Handle personal transactions and resolve issues using disputes.
 
-Login: Securely log in with their credentials.
+## Credentials
+User Role	Username	Password
+Admin	admin1	1234
+Customer	jaya0505	1234
+Customer	ashishjuttu	1234
 
-Add Bank Details: Users can store multiple bank accounts.
+## SQL Queries
 
-Make Payments: Authorize transactions to other users, either manually or through saved contacts.
+Retrieve Recent Transactions by User:
 
-View Transaction History: Review transaction history and balances.
+SELECT 
+    TransactionID, SenderName, ReceiverName, AmountSent, Status, TransactionDate
+FROM 
+    transaction
+WHERE 
+    SenderName = %s OR ReceiverName = %s
+ORDER BY 
+    TransactionID DESC
+LIMIT %s;
 
-## Database Schema
+Raise a Dispute:
 
-Credentials/User: The table contains fields for UserID, Email, Password, PhoneNumber (Optional), and ConfirmPassword.
+INSERT INTO disputes (TransactionID, UserID, Message, Status)
+VALUES (%s, %s, %s, 'Pending');
+Set a Payment Source as Primary:
 
-UserBankDetails: The table stores each user's UserAccountNumber, UserRoutingNumber, and Balance. Each user can have multiple bank accounts (1 to 5).
+UPDATE sources
+SET IsPrimary = 1
+WHERE SourceID = %s;
 
-Transaction: This table contains the transaction details, including TID, SenderAccNo, ReceiverAccNo, and the corresponding routing numbers.
+Count Weekly Transactions:
 
-SavedUsers: A reference table to store contacts that a user frequently sends payments to. This includes SUserID, SUserAccountNumber, and SUserRoutingNumber.
+SELECT 
+    YEARWEEK(TransactionDate, 1) AS Week, COUNT(*) AS TransactionCount
+FROM 
+    transaction
+GROUP BY 
+    YEARWEEK(TransactionDate, 1);
+Count Weekly Users:
 
-BankAuth: Handles the verification process for transactions using the sender's and receiver's bank details.
+SELECT 
+    YEARWEEK(CreatedAt, 1) AS Week, COUNT(*) AS UserCount
+FROM 
+    users
+WHERE 
+    Role = 'customer'
+GROUP BY 
+    YEARWEEK(CreatedAt, 1);
+    
+Total Disputes Per Status:
 
+SELECT 
+    Status, COUNT(*) AS DisputeCount
+
+
+FROM 
+    disputes
+GROUP BY 
+    Status;
+
+## Future Enhancements
+
+Add an extra layer of security for login.
+Integrate more detailed metrics, such as monthly reports and growth trends.
+Notify users when transactions are completed or disputes are resolved.
+Implement logging for admin actions and dispute resolutions.
