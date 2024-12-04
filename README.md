@@ -1,6 +1,6 @@
 # CashCow
 
-Sagar Bangera
+**Developer:** Sagar Bangera
 
 CashCow is a comprehensive payment tracking and management system that simplifies financial transactions. The application enables users to manage payment sources, perform secure transactions, resolve disputes, and track transaction histories. It is built with a focus on user-friendliness, administrative control, and analytical insights, making it suitable for personal and organizational use. The app includes distinct user roles (admin and customer), ensuring a robust experience for different users.
 
@@ -83,11 +83,11 @@ Customer:
 Main Purpose: Handle personal transactions and resolve issues using disputes.
 
 ## Credentials
-User Role	Username	Password
-Admin	admin1	1234
-Customer	jaya0505	1234
-Customer	ashishjuttu	1234
-
+| User Role | Username   | Password |
+|-----------|------------|----------|
+| Admin     | admin1     | 1234     |
+| Customer  | jaya0505   | 1234     |
+| Customer  | ashishjuttu| 1234     |
 ## SQL Queries
 
 Retrieve Recent Transactions by User:
