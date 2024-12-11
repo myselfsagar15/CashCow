@@ -61,7 +61,8 @@ Analytics:
 Track platform activity to identify trends and growth.
 
 ## ER Diagram
-
+![ERD](ERD.png)
+![RS](RS1.png)
 The ER diagram represents the structure of the application's database. It includes the following key entities:
 
 Credentials/User: Stores user credentials like email, password, name, and an optional phone number. Each user has a one-to-many relationship with their bank details.
@@ -75,7 +76,7 @@ SavedUsers: Allows users to store information about other users they frequently 
 Bank: Stores bank-related information and ensures proper routing of transactions by verifying account details through the BankAuth entity.
 
 ## Usage
-![Logo](ERD.png)
+
 Admin:
 Main Purpose: Monitor and manage disputes, users, and transactions. Provides insights and platform management capabilities.
 
