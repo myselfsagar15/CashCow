@@ -75,7 +75,7 @@ SavedUsers: Allows users to store information about other users they frequently 
 Bank: Stores bank-related information and ensures proper routing of transactions by verifying account details through the BankAuth entity.
 
 ## Usage
-![Logo](images/ERD.png)
+![Logo](ERD.png)
 Admin:
 Main Purpose: Monitor and manage disputes, users, and transactions. Provides insights and platform management capabilities.
 
